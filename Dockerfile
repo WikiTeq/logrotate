@@ -23,7 +23,7 @@ RUN export CONTAINER_USER=logrotate && \
     fi && \
     mkdir -p /usr/bin/logrotate.d && \
     wget --no-check-certificate -O /tmp/go-cron.tar.gz https://github.com/WikiTeq/go-cron/releases/download/v0.0.3/go-cron.$(arch).tar.gz && \
-    tar xvf /tmp/go-cron.$(arch).tar.gz -C /usr/bin && \
+    tar xvf /tmp/go-cron.tar.gz -C /usr/bin && \
     apk del \
       wget && \
     rm -rf /var/cache/apk/* && rm -rf /tmp/*
