@@ -1,4 +1,4 @@
-FROM blacklabelops/alpine:3.8
+FROM ghcr.io/wikiteq/alpine:3.8
 MAINTAINER Steffen Bleul <sbl@blacklabelops.com>
 
 # logrotate version (e.g. 3.9.1-r0)
@@ -22,8 +22,8 @@ RUN export CONTAINER_USER=logrotate && \
       else apk add "logrotate=${LOGROTATE_VERSION}" ; \
     fi && \
     mkdir -p /usr/bin/logrotate.d && \
-    wget --no-check-certificate -O /tmp/go-cron.tar.gz https://github.com/michaloo/go-cron/releases/download/v0.0.2/go-cron.tar.gz && \
-    tar xvf /tmp/go-cron.tar.gz -C /usr/bin && \
+    wget --no-check-certificate -O /tmp/go-cron.tar.gz https://github.com/WikiTeq/go-cron/releases/download/v0.0.3/go-cron.$(arch).tar.gz && \
+    tar xvf /tmp/go-cron.$(arch).tar.gz -C /usr/bin && \
     apk del \
       wget && \
     rm -rf /var/cache/apk/* && rm -rf /tmp/*
